@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nvivo</groupId>
-  <artifactId>bridge-cg-svc</artifactId>
+  <artifactId>cg-bridge-service</artifactId>
   <packaging>war</packaging>
 
   <version>1.0-SNAPSHOT</version>
-  <name>bridge-cg-svc</name>
+  <name>cg-bridge-service</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -48,6 +48,11 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
     <!-- Apache CXF Dependencies -->
@@ -106,6 +111,6 @@
 
   </dependencies>
   <build>
-    <finalName>bridge-cg-svc</finalName>
+    <finalName>cg-bridge-service</finalName>
   </build>
 </project>

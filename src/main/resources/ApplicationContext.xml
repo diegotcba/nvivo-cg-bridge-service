@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+       <import resource="classpath:META-INF/cxf/cxf.xml" />
+
+       <jaxrs:server id="restApi" address="/">
+              <jaxrs:providers>
+                     <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+              </jaxrs:providers>
+              <jaxrs:serviceBeans>
+                     <ref bean="restCgBridgeService" />
+              </jaxrs:serviceBeans>
+       </jaxrs:server>
+
+       <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+              <property name="locations">
+                     <list>
+                            <value>classpath:cg-bridge-service.properties</value>
+                     </list>
+              </property>
+       </bean>
+
+       <bean id="restCgBridgeService" class="com.nvivo.cgbridge.svc.rest.impl.RestCgBridgeServiceImpl">
+       </bean>
+</beans>
